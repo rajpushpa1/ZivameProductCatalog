@@ -26,8 +26,10 @@ public class ProductController {
 	
 	@CrossOrigin
 	@PostMapping("/saveproduct")
-	public  ResponseEntity<Product> saveEmployee(@RequestBody Product product) throws ProductException {
-		return new ResponseEntity<Product>(productService.saveProduct(product), HttpStatus.OK);
+	public  ResponseEntity<String> saveEmployee(@RequestBody Product product) throws ProductException {
+		
+		productService.saveProduct(product);
+		return new ResponseEntity<String>("Product save", HttpStatus.OK);
 	}
 	@CrossOrigin
 	@GetMapping("/getallproducts")

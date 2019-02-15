@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Product {
 	@Id
 	@GeneratedValue
-	private int id;
+	private int productId;
 	private String productName;
 	private String type;
 	private double price;
@@ -16,10 +16,10 @@ public class Product {
 	
 	
 	public int getId() {
-		return id;
+		return productId;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.productId = id;
 	}
 	public String getProductName() {
 		return productName;
@@ -42,7 +42,7 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", productName=" + productName + ", type="
+		return "Product [id=" + productId + ", productName=" + productName + ", type="
 				+ type + ", price=" + price + "]";
 	}
 	
