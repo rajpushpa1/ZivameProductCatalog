@@ -34,4 +34,9 @@ public class ProductService {
 		return repository.findByType(prodType);
 	}
 
+
+	public Product getProductById(int id) {
+		return repository.findByProductId(id);
+	}
+
 }

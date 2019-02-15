@@ -8,6 +8,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 
 	Product findByType(String type);
 
+	Product findByProductId(int id);
+
 
 
 }

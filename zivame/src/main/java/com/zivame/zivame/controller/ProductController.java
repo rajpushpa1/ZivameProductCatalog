@@ -44,9 +44,14 @@ public class ProductController {
 		return new ResponseEntity<String>("Product deleted successfully", HttpStatus.OK);
 	}
 
-	@GetMapping("/getproduct/{type}")
+	@GetMapping("/getproductby/{type}")
 	public ResponseEntity<Product> getProductByType(@PathVariable String type) throws ProductException {
 		return new ResponseEntity<Product>(productService.getProductByType(type), HttpStatus.OK);
+	}
+	
+	@GetMapping("/getproductby/{id}")
+	public ResponseEntity<Product> getProductById(@PathVariable int id) throws ProductException {
+		return new ResponseEntity<Product>(productService.getProductById(id), HttpStatus.OK);
 	}
 
 }
