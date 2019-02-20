@@ -44,6 +44,7 @@ public class ZivameApplicationTests {
 		pd.setPrice(1000);
 		String json = this.mapToJson(pd);
 		String URI = "/api/saveproduct";
+		String response1 = "Product save";
 		
 		Mockito.when(productService.saveProduct(Mockito.any(Product.class))).thenReturn(pd);
 		
