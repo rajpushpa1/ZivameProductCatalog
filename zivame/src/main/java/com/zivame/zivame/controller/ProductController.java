@@ -32,7 +32,7 @@ public class ProductController {
 		return new ResponseEntity<Product>(productService.saveProduct(product), HttpStatus.OK);
 	}
 	@CrossOrigin
-	@GetMapping("/getallproducts")
+	@GetMapping("/getallproduct")
 	public ResponseEntity<Iterable<Product>> getAllProduct() throws ProductException {
 		return new ResponseEntity<Iterable<Product>>(productService.getAllProducts(), HttpStatus.OK);
 	}
