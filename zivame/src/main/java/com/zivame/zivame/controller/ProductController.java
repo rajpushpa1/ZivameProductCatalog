@@ -1,3 +1,4 @@
+
 package com.zivame.zivame.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import com.zivame.zivame.model.Product;
 import com.zivame.zivame.service.ProductService;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class ProductController {
 	
 	@Autowired
@@ -52,6 +53,11 @@ public class ProductController {
 	@GetMapping("/getproductby/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable int id) throws ProductException {
 		return new ResponseEntity<Product>(productService.getProductById(id), HttpStatus.OK);
+	}
+
+	@GetMapping("/hello")
+	public String hello() {
+		return "Hello-world";
 	}
 
 }
