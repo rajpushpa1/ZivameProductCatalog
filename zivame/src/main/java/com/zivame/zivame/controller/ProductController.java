@@ -1,6 +1,8 @@
 
 package com.zivame.zivame.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,8 @@ import com.zivame.zivame.service.ProductService;
 @RestController
 //@RequestMapping("/api")
 public class ProductController {
+
+	private static final Logger logger = LogManager.getLogger(ProductController.class);
 	
 	@Autowired
 	private ProductService productService;
@@ -30,6 +34,8 @@ public class ProductController {
 	public  ResponseEntity<Product> saveProduct(@RequestBody Product product) throws ProductException {
 		
 //		productService.saveProduct(product);
+
+		logger.info("Inside saveProduct Mehthod ==>>>" + product.toString());
 		return new ResponseEntity<Product>(productService.saveProduct(product), HttpStatus.OK);
 	}
 	@CrossOrigin
@@ -52,6 +58,7 @@ public class ProductController {
 	
 	@GetMapping("/getproductby/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable int id) throws ProductException {
+		logger.info("Inside getProductById Mehthod ==>>>" + productService.getProductById(id));
 		return new ResponseEntity<Product>(productService.getProductById(id), HttpStatus.OK);
 	}
 

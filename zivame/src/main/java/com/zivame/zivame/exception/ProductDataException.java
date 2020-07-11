@@ -2,6 +2,9 @@ package com.zivame.zivame.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.zivame.zivame.controller.ProductController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class ProductDataException {
+
+	private static final Logger logger = LogManager.getLogger(ProductDataException.class);
 	
 	
 	@ExceptionHandler(ProductException.class)
@@ -21,6 +26,7 @@ public class ProductDataException {
 		Exceptoin_VO error = new Exceptoin_VO();
 		error.setErrorMessage(exception.getMessage());
 		error.callerURL(request.getRequestURI());
+		logger.info(exception.getMessage());
 
 		return error;
 	}
@@ -33,7 +39,7 @@ public class ProductDataException {
 		Exceptoin_VO error = new Exceptoin_VO();
 		error.setErrorMessage(exception.getMessage());
 		error.callerURL(request.getRequestURI());
-
+		logger.info(exception.getMessage());
 		return error;
 	}
 
